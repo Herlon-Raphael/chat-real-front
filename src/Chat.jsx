@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import { v4 as uuidv4 } from "uuid";
 
 const myId = uuidv4();
-const socket = io("http://localhost:8080");
+const socket = io(process.env.REACT_APP_API_URL);
 socket.on("connect", () => console.log("[IO] Connect => New connection"));
 
 
@@ -14,7 +14,7 @@ export default function Chat() {
   const [life, setLife] = useState(5);
   const [input, setInput] = useState(false);
 
-  const ENDPOINT = 'localhost:8080';
+  const ENDPOINT = process.env.REACT_APP_API_URL;
 
   useEffect( () => {
  
